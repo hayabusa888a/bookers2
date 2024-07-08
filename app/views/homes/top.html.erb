@@ -1,13 +1,16 @@
-<h1>Welcomt to Bookers!!</h1>
-
-<p>in Bookers,</p>
-<p>you can share and exchange your opinions , inpressions , and emotions</p>
-<p>about various books!</p>
-<div>
-  <%= link_to "Log in", new_user_session_path %>
+ <div class="container">
+  <div class="text-center">
+       <h1>Welcomt to Bookers!!</h1>
+        
+        <p>in Bookers,</p>
+        <p>you can share and exchange your opinions , inpressions , and emotions</p>
+        <p>about various books!</p>
+        <div>
+          <%= link_to "Log in", new_user_session_path,class: "btn btn-primary btn-sm" %>
+        </div></br>
+        <div>
+          <%= link_to "Sign up", new_user_registration_path,class: "btn btn-success btn-sm" %>
+        </div>
+  </div>    
 </div>
-<div>
-  <%= link_to "Sign up", new_user_registration_path %>
-</div>
-
  
