@@ -1,0 +1,18 @@
+@use '~bootstrap/scss/bootstrap';
+
+.books-index table th,
+.books-index table td {
+  padding: 8px;
+}
+
+.books-index table .col-image {
+  width: 20%;
+}
+
+.books-index table .col-title {
+  width: 40%;
+}
+
+.books-index table .col-body {
+  width: 40%;
+}

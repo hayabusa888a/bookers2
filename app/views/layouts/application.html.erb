@@ -5,79 +5,103 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/a15c77aa6a.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
+      header {
+        background-color: gray;
+        width: 100%;
+      }
+    </style>
   </head>
-<header style="background-color: gray;">
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="navbar-toggler-icon"></span>
-     </button>
-     <a href="/" style="color: white;"><span>Bookers</span></a>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-       <ul class="navbar-nav ml-auto">
-              <body>
-                <% if user_signed_in? %>
-            
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="/" style="color: white;"><span>Bookers</span></a>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
                    <div class="col-4" >                
                       <li class="nav-item" >
-                        <%= link_to "Home", user_path(current_user.id), style: "color: white;"%>
+                        <%= link_to user_path(current_user.id), style: "color: white;" do %>
+                         <i class="fa-solid fa-house"></i>Home
+                        <% end %>
                       </li>
                     </div>
                      <div class="col-4">    
                       <li class="nav-item">
-                        <%= link_to "Users", users_path, style: "color: white;" %>
+                        <%= link_to  users_path, style: "color: white;" do %>
+                         <i class="fa-solid fa-users"></i>Users
+                        <% end %>
                       </li>
                     </div> 
                      <div class="col-4">    
                       <li class="nav-item">
-                        <%= link_to "Books", books_path, style: "color: white;" %>
+                        <%= link_to  books_path, style: "color: white;" do%>
+                         <i class="fa-solid fa-book-open"></i>Books
+                        <% end %>
                       </li>
                     </div> 
                      <div class="col-4">    
                       <li class="nav-item">
-                        <%= link_to "Log out", destroy_user_session_path, method: :delete, style: "color: white;" %>
+                        <%= link_to  destroy_user_session_path, method: :delete, style: "color: white;" do %>
+                        <i class="fa-solid fa-right-from-bracket"></i>Log out
+                        <% end %>
                       </li>
                     </div> 
                     <% else %>
                      <div class="col-4">     
                       <li class="nav-item">
-                        <%= link_to "Homes", root_path , style: "color: white;" %>
+                        <%= link_to root_path , style: "color: white;" do %>
+                        <i class="fa-solid fa-house"></i>Home
+                        <% end %>
                       </li>
                     </div> 
                      <div class="col-4">     
                       <li class="nav-item">
-                        <%= link_to "About", about_path , style: "color: white;"%>
+                        <%= link_to  about_path , style: "color: white;" do%>
+                        <i class="fa-solid fa-link"></i>About
+                        <% end %>
                       </li>
                     </div> 
                      <div class="col-4">     
                       <li class="nav-item">
-                        <%= link_to "Sign up", new_user_registration_path, style: "color: white;" %>
+                        <%= link_to new_user_registration_path, style: "color: white;" do %>
+                         <i class="fa-solid fa-user-plus"></i>Sign up
+                        <% end %>
                       </li>
                     </div> 
                      <div class="col-4">    
                       <li class="nav-item">
-                        <%= link_to "Log in", new_user_session_path, style: "color: white;" %>
+                        <%= link_to new_user_session_path, style: "color: white;" do %>
+                        <i class="fa-solid fa-right-to-bracket"></i>Log in
+                        <% end %>
                       </li>
                     </div> 
           
                     <% end %>
                 
-              </body>
-          </ul>
+            </ul>
+          </div>
         </div>
-   </container>
-  </nav>
-</header>
- <%= yield %>
- 
- 
- <footer>
-   </br>
-   <p class="text-center">CopyRight Infratop.inc</p>
- </footer>
+      </nav>
+    </header>
+    <%= render 'layouts/flash' %>
+    <%= yield %>
+    <footer>
+      <br>
+      <p class="text-center">CopyRight Infratop.inc</p>
+    </footer>
+  </body>
 </html>
-
-

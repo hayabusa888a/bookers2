@@ -1,1 +1,20 @@
 @use '~bootstrap/scss/bootstrap';
+
+.users-show table th,
+.users-show table td {
+  padding: 8px;
+}
+
+.users-show table .col-image {
+  width: 20%;
+}
+
+.users-show table .col-title {
+  width: 40%;
+}
+
+.users-show table .col-body {
+  width: 40%;
+}
+
+

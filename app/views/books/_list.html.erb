@@ -1,8 +1,11 @@
 <h1>User info</h1>
 <%= image_tag user.get_profile_image(100,100) %>
-<p>name  <%= user.name %></p>
-<p>introduction <%= user.introduction %></p>
-<%= link_to "edit" ,edit_user_path(user) %>
+<p>name  　　　<%= user.name %></p>
+<p>introduction 　　　<%= user.introduction %></p>
+<%= link_to edit_user_path(user) do %>
+ <i class="fas fa-user-cog"></i>
+<% end %>
+
 
 <!-/bookers2/app/views/books/new.html.erb--->
 

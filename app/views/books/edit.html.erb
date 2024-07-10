@@ -1,9 +1,42 @@
-<h1>Editing Book</h1>
-<%= form_with model: @book do |f| %>
-  <label for="inputTitle">Title</label>
-  <%= f.text_field :title, id:"inputName" %>
-  <label for="inputOpinion">Opinion</label>
-  <%= f.text_field :body, id:"inputOpinion" %>
-  <%= f.submit "update Book" %>
-  <p><%= link_to "Show" ,book_path(@book)  %> | <%= link_to "Back" , books_path %></p>
+<% if @book.errors.any? %>
+ <% if @book.errors.count == 1 %>
+   <%= @book.errors.count %>error :
+  <% else %>
+   <%= @book.errors.count %>errors :
+ <% end %>
+ <ul>
+  <% @book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+ </ul>
 <% end %>
+
+
+<div class="container">
+  <h1>Editing Book</h1>
+  <div class="row justify-content-center">
+    
+    <div class="col-md-6">
+      <%= form_with model: @book,local: true, class: "form-group" do |f| %>
+        <div class="form-group">
+          <label for="inputTitle">Title</label>
+          <%= f.text_field :title, class: "form-control", id: "inputTitle", style: "width: 100%;" %>
+        </div>
+
+        <div class="form-group">
+          <label for="inputOpinion">Opinion</label>
+          <%= f.text_field :body, class: "form-control", id: "inputOpinion", style: "width: 100%;" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "Update Book", class: "btn btn-primary" %>
+        </div>
+
+        <div class="form-group">
+          <%= link_to "Show", book_path(@book), class: "btn btn-secondary" %> 
+          <%= link_to "Back", books_path, class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
