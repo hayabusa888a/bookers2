@@ -1,8 +1,8 @@
-class PostCommentsController < ApplicationController
+class BookCommentsController < ApplicationController
   
   def create
     book = Book.find(params[:book_id])
-    comment = PostComment.new(post_comment_params)
+    comment = BookComment.new(book_comment_params)
     comment.user_id = current_user.id
     comment.book_id = book.id
     comment.save
@@ -10,14 +10,14 @@ class PostCommentsController < ApplicationController
   end
   
   def destroy
-    PostComment.find(params[:id]).destroy
+    BookComment.find(params[:id]).destroy
     redirect_to book_path(params[:book_id])
   end
   
   private
   
-  def post_comment_params
-    params.require(:post_comment).permit(:comment)
+  def book_comment_params
+    params.require(:book_comment).permit(:comment)
   end
   
 end
