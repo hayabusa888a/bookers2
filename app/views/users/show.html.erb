@@ -27,9 +27,12 @@
                     <%= image_tag book.user.get_profile_image(100,100) %>
               <% end %>
             </td>
-           <td class="main"><%= link_to book.title, book_path(book)  %></td>
+           <td class="main"><%= link_to book.title, book_path(book)  %></br>
+             <p><%= link_to "#{book.post_comments.count} コメント", book_path(book.id) %></p>
+           </td>
            <td class="main"><%= book.body %></td>
           </tr>
+          
          <% end %>  
         </tbody>
       </table>
